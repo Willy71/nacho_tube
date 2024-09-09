@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 import requests
 
 # Configuración de la página
-st.set_page_config(page_title="You 2 be", page_icon="▶️")
+st.set_page_config(page_title="Nachotube - Reproductor de Nacho Cerato", page_icon="▶️")
 
 # Reducir espacio en la parte superior
 reduce_space ="""
