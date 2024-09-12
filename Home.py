@@ -6,7 +6,7 @@ from google.oauth2.service_account import Credentials
 from pytube import YouTube
 
 # Configuración de la página
-st.set_page_config(page_title="You 2 be", page_icon="▶️")
+st.set_page_config(page_title="Nachotube - YouTube exclusivo de Nacho Cerato", page_icon="▶️")
 
 # Reducir espacio en la parte superior
 reduce_space = """
