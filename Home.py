@@ -23,7 +23,7 @@ SERVICE_ACCOUNT_INFO = st.secrets["gsheets"]
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
 credentials = Credentials.from_service_account_info(SERVICE_ACCOUNT_INFO, scopes=SCOPES)
 gc = gspread.authorize(credentials)
-SPREADSHEET_KEY = '1NQN92mhMxhhj9CP3OfYxo_aowkI74y49sSPvStIiXn0'
+SPREADSHEET_KEY = '1Vh6vBMGNR4YJltwsCt0lYp7CLSsFq_FarCkRAZOqLZw'
 SHEET_NAME = 'youtube_videos'
 
 # Intentar acceder a la hoja
