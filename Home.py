@@ -152,8 +152,8 @@ def main():
             else:
                 st.error("Ingresa una URL y una categoría.")
                         
-    st.text("")                    
-    center_text_link("Hoja de Google Sheets", link_sheet, "green", 1)
+        st.text("")                    
+        center_text_link("Hoja de Google Sheets", link_sheet, "green", 1)
                 
 if __name__ == "__main__":
     main()
