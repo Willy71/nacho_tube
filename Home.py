@@ -25,6 +25,7 @@ credentials = Credentials.from_service_account_info(SERVICE_ACCOUNT_INFO, scopes
 gc = gspread.authorize(credentials)
 SPREADSHEET_KEY = '1Vh6vBMGNR4YJltwsCt0lYp7CLSsFq_FarCkRAZOqLZw'
 SHEET_NAME = 'youtube_videos'
+link_sheet = "https://docs.google.com/spreadsheets/d/1Vh6vBMGNR4YJltwsCt0lYp7CLSsFq_FarCkRAZOqLZw/edit?usp=sharing"
 
 # Intentar acceder a la hoja
 try:
@@ -36,6 +37,21 @@ except gspread.exceptions.SpreadsheetNotFound:
 def centrar_texto(texto, tamanho, color):
     st.markdown(f"<h{tamanho} style='text-align: center; color: {color}'>{texto}</h{tamanho}>", unsafe_allow_html=True)
 
+def center_text_link(link_text, link_url, size, color):
+    """
+    Centers a hyperlink on the Streamlit page.
+
+    Parameters:
+    - link_text (str): The text to display as a hyperlink.
+    - link_url (str): The URL the link points to.
+    - size (str): The size of the text (HTML heading size, e.g., "1" for <h1>).
+    - color (str): The color of the text.
+    """
+    st.markdown(
+        f"<h{size} style='text-align: center; color: {color}'><a href='{link_url}' target='_blank'>{link_text}</a></h{size}>",
+        unsafe_allow_html=True
+    )
+            
 def load_videos():
     rows = sheet.get_all_records()
     df = pd.DataFrame(rows)
@@ -83,7 +99,7 @@ def main():
 
         if not df_filtered.empty:
             df_titles = df_filtered["Title"].unique()
-            df_titles = sorted(df_titles)
+            #df_titles = sorted(df_titles)
             slb_2 = st.radio("Selecciona un video para reproducir", df_titles)
 
             df_video = df_filtered[df_filtered["Title"] == slb_2].iloc[0]
@@ -135,6 +151,9 @@ def main():
                     st.error("Ingresa una URL válida de YouTube.")
             else:
                 st.error("Ingresa una URL y una categoría.")
-
+                        
+        st.text("")                    
+        center_text_link("Hoja de Google Sheets", link_sheet, "green", 1)
+                
 if __name__ == "__main__":
     main()
